@@ -1,12 +1,12 @@
-# Deep Learning Assignment 2 - CNN and Transfer Learning
+# Deep Learning Assignment 2 - Sudhanva S (DA24M023)
 
-This repository contains a Jupyter Notebook (`dl-a2.ipynb`) implementing a custom CNN and fine-tuned VGG19 model on the iNaturalist 12K dataset, using Weights & Biases (W&B) for hyperparameter tuning.
+This repository is my codebase for DA6401 Deep Learning Assignment 2 and contains `dl-a2.ipynb` implementing a custom CNN (Part A) and fine-tuned VGG19 model (Part B) on the iNaturalist 12K dataset, using Wandb for hyperparameter tuning.
 
 ## Repository Structure
 
 ```
 DL-Assignment2/
-├── dl-a2.ipynb              # Jupyter Notebook with implementation
+├── dl-a2.ipynb              # Jupyter Notebook with full implementation
 ├── inaturalist_12K/         # iNaturalist 12K dataset
 │   ├── train/               # Training images by class
 │   └── val/                 # Test images by class
@@ -16,56 +16,27 @@ DL-Assignment2/
 
 ## Prerequisites
 
-- Python 3.8+
+- Python
 - Jupyter Notebook
 - CUDA-enabled GPU (optional)
-- Weights & Biases account
-
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/DL-Assignment2.git
-   cd DL-Assignment2
-   ```
-
-2. Create and activate a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. Install dependencies:
-   ```bash
-   pip install torch torchvision wandb pillow numpy tqdm matplotlib
-   ```
-
-4. Log in to Weights & Biases:
-   ```bash
-   wandb login
-   ```
+- Wandb account
 
 ## Running the Notebook
 
-1. Start Jupyter Notebook:
-   ```bash
-   jupyter notebook
-   ```
+1. Open `dl-a2.ipynb`.
 
-2. Open `dl-a2.ipynb`.
+2. Ensure `inaturalist_12K/` contains `train/` and `val/` folders, and `best_model.pth` is in the root directory.
 
-3. Ensure `inaturalist_12K/` contains `train/` and `val/` folders, and `best_model.pth` is in the root directory.
-
-4. Update dataset paths in cells 4, 6, and 8 if not using `/kaggle/input/inaturalist12k/inaturalist_12K/`.
+3. Update dataset paths in all cells where data is loaded.
 
 ### Part A: Custom CNN
 
 - **Question 1 (Build CNN)**: Run cells 1–3 to set up W&B, dataset, and define `BasicCNN`.
 - **Question 2 (Train CNN)**: Run cells 4–5 to train with W&B sweeps. Adjust `count` in cell 5 for fewer runs (e.g., `count=5`).
+- **Question 3 (Insights)**: This is in the wandb report
 - **Question 4 (Test CNN)**: Run cell 6 to evaluate on test dataset using `best_model.pth` and visualize predictions.
 
 ### Part B: Fine-Tune VGG19
 
 - **Question 1 (Fine-Tune VGG19)**: Run cells 1–2, 7–9 to set up dataset, load VGG19, and fine-tune with W&B sweeps. Adjust sweep parameters in cell 9 for fewer runs.
-
-**Note**: Use a GPU for faster training. Monitor results on [wandb.ai](https://wandb.ai) under the `DL_A2` project.
+- **Question 2 and 3**: These are in the wandb report
